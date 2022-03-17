@@ -1,0 +1,29 @@
+{
+  "files.associations": {
+    "*.html": "html",
+    ".env": "ini",
+    ".env.*": "ini",
+    "string_view": "cpp",
+    "regex": "cpp",
+    "ranges": "cpp",
+    "bitset": "cpp",
+    "*.tcc": "cpp",
+    "system_error": "cpp",
+    "array": "cpp",
+    "istream": "cpp",
+    "limits": "cpp",
+    "numeric": "cpp",
+    "sstream": "cpp",
+    "streambuf": "cpp",
+    "utility": "cpp",
+    "deque": "cpp",
+    "list": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "vector": "cpp",
+    "memory": "cpp",
+    "random": "cpp",
+    "initializer_list": "cpp",
+    "functional": "cpp"
+  }
+}
