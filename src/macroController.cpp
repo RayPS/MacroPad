@@ -49,7 +49,7 @@ void MacroController::update ()
     throttles[i].update();
     if (throttles[i].fell()) {
       if (config.size() != 0) {
-        JsonArrayConst macro = config["keys"].getElement(i);
+        JsonArrayConst macro = config["macros"].getElement(i);
         if (!macro.isNull()) {
           swSerial.println("Key " + (String) i + " fell with macro:");
           serializeJsonPretty(macro, swSerial);
@@ -60,8 +60,8 @@ void MacroController::update ()
           swSerial.println(F("config: "));
           serializeJsonPretty(config, swSerial);
           swSerial.println("");
-          swSerial.println(F("config[keys]: "));
-          serializeJsonPretty(config["keys"], swSerial);
+          swSerial.println(F("config[macros]: "));
+          serializeJsonPretty(config["macros"], swSerial);
           swSerial.println("");
         }
       } else {
