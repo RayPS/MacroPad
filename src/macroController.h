@@ -6,7 +6,6 @@
 #include <ArduinoJson.h>
 #include <LittleFS.h>
 #include <CH9328Keyboard.h>
-#include <StringSplitter.h>
 
 #define CH9328_RST 15
 
@@ -36,7 +35,7 @@ class MacroController
     };
     Throttle throttles[KEY_COUNT];
     void runMacro(JsonArrayConst macro);
-    int parseShortcut(String shortcut, int result[MACRO_KEY_COUNT_MAX]);
+    int parseShortcut(char shortcut[], int result[MACRO_KEY_COUNT_MAX]);
     void sendShortcut(int keys[MACRO_KEY_COUNT_MAX], int keyCount, bool press);
 
   public:

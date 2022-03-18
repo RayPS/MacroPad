@@ -71,23 +71,29 @@ void MacroController::update ()
   }
 }
 
-int MacroController::parseShortcut (String shortcut, int result[MACRO_KEY_COUNT_MAX])
+int MacroController::parseShortcut (char shortcut[], int result[MACRO_KEY_COUNT_MAX])
 {
-  StringSplitter *splitter = new StringSplitter(shortcut, ' ', MACRO_KEY_COUNT_MAX);
-  int count = splitter->getItemCount() - 1;
+  char *token;
+  const char *delimiter = " ";
+  int count = -1;
 
-  for (int i = 0; i < count; i++) {
-    String token = splitter->getItemAtIndex(i + 1);
-    token.trim();
-    if (utils.tokens.containsKey(token)) {
-      token.toUpperCase();
-      result[i] = utils.tokens[token].as<int>();
-    } else {
-      token.toLowerCase();
-      result[i] = (int) token[0];
+  token = strtok(shortcut, delimiter);
+
+  while (token != NULL) {
+    String tokenString = token;
+    tokenString.trim();
+    tokenString.toUpperCase();
+    if (count > -1) { // Skip '@'
+      if (utils.tokens.containsKey(tokenString)) {
+        result[count] = utils.tokens[tokenString].as<int>();
+      } else {
+        result[count] = tolower(token[0]);
+      }
     }
+    token = strtok(NULL, delimiter);
+    count++;
   }
-
+  
   return count;
 }
 
