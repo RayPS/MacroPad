@@ -27,17 +27,17 @@ TODO: Add [Schematic](), [PCB](), [CAD]() files here.
 
 The web interface is a Vue.js application.
 
-TODO: Add project directory here.
+See [/web](web) for more information.
 
 # API
 
-| **Method** | **URL** | **Description** |
-| :--- | :--- | :--- |
-| `GET` | `/api/config` | read config |
-| `POST` | `/api/config` | write config |
-| `DELETE` | `/api/config` | delete config |
-| `GET` | `/api/restart` | restart |
-| `GET` | `/api/reset` | earase all settings |
+| **Method** | **URL** | **Description** | **Done** |
+| :--- | :--- | :--- | :---: |
+| `GET` | `/api/config` | read config | ✅ |
+| `POST` | `/api/config` | write config | ✅ |
+| `DELETE` | `/api/config` | delete config | ✅ |
+| `GET` | `/api/restart` | restart | ✅ |
+| `GET` | `/api/reset` | earase all settings | ✅ |
 
 
 
@@ -48,6 +48,7 @@ TODO: Add project directory here.
         <tr>
             <th>Syntax</th>
             <th>Feature</th>
+            <th>Done</th>
         </tr>
     </thead>
     <tbody>
@@ -71,6 +72,16 @@ interval (ms)
 press key
 release key
 release all keys</pre>
+            </td>
+            <td>
+<pre>✅
+✅
+✅
+✅
+❌
+✅
+✅
+✅</pre>
             </td>
         </tr>
     </tbody>
