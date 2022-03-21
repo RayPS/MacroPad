@@ -8,8 +8,11 @@
 
 bool InterfaceController::setup()
 {
-  //to enable testing and debugging of the interface
-  DefaultHeaders::Instance().addHeader(PSTR("Access-Control-Allow-Origin"), PSTR("*"));
+  if (!PRODUCTION) {
+    DefaultHeaders::Instance().addHeader("Access-Control-Allow-Origin", "*");
+    DefaultHeaders::Instance().addHeader("Access-Control-Allow-Headers", "*");
+    DefaultHeaders::Instance().addHeader("Access-Control-Allow-Methods", "*");
+  }
 
   wm.setSaveConfigCallback([](void) {
     swSerial.println(PSTR("saving config & restart"));
