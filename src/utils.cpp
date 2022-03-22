@@ -21,6 +21,7 @@ void utilsController::defineTokens ()
 
   tokens["BACKSPACE"] = 0xB2;
   tokens["TAB"] =       0xB3;
+  tokens["SPACE"] =     0xB4;
   tokens["RETURN"] =    0xB0;
   tokens["ENTER"] =     0xB0; // alias
   tokens["ESC"] =       0xB1;
