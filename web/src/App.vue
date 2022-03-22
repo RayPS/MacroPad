@@ -13,26 +13,22 @@ loadConfig()
 </script>
 
 <template>
-  <div class="header">
-    <h1>⌘</h1>
-    <h1>MacroPad</h1>
-    <h3>Configuration</h3>
-  </div>
-
-  <template v-if="!loading && !error">
-    <div class="key-grid">
-      <KeyItem
-        v-for="macro, index in config.macros" :key="index"
-        :index="index" :macro="macro"
-      />
+  <div class="config-container">
+    <div class="header">
+      <h1>&#8984;</h1>
+      <h1>MacroPad</h1>
+      <h3>Configuration</h3>
     </div>
-    <div class="button" @click="saveConfig">
-      Save
-    </div>
-  </template>
-
-  <div v-else-if="error" class="error">
-    Failed to load config
+    <template v-if="!loading && !error">
+      <div class="key-grid">
+        <KeyItem
+          v-for="macro, index in config.macros" :key="index"
+          :index="index" :macro="macro"
+        />
+      </div>
+      <Button text="Save" @click="saveConfig" />
+    </template>
+    <Error v-else-if="error" :message="error" />
     <Spinner v-else />
   </div>
 </template>
@@ -48,23 +44,20 @@ loadConfig()
   background-color: hsla(0, 0%, 98%, 1);
   height: 100vh;
   overflow-y: scroll;
-  text-align: center;
   color: hsla(0, 0%, 25%, 1);
 }
 
-.header {
-  padding: 40px 0;
-}
+.config-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100vh;
+  min-height: 700px;
 
-.key-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 40px;
-  padding: 40px;
-  max-width: 1800px - 40px * 2;
-  margin: 0 auto;
-}
+  .header {
+    text-align: center;
+  }
 
   .key-grid {
     display: grid;

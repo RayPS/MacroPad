@@ -45,6 +45,7 @@ function handleInput (event: Event) {
     box-shadow: inset 0 0 0 2px hsla(0, 0%, 25%, 1);
     font-size: 24px;
     user-select: none;
+    text-align: center;
   }
 
   .macro {
