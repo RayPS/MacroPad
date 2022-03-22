@@ -28,6 +28,7 @@ module.exports = {
       singleline: { max: 4 },
       multiline: { max: 4 },
     }],
+    'vue/multi-word-component-names': 'off',
   },
   overrides: [
     // Disable no-undef rule for TypeScript:
