@@ -2,6 +2,7 @@
 import { useConfig } from '@/modules/config'
 import KeyItem from './components/KeyItem.vue'
 import Spinner from './components/Spinner.vue'
+import Error from './components/Error.vue'
 
 const { state, loadConfig, saveConfig } = useConfig()
 const { config, loading, error } = state
@@ -79,12 +80,4 @@ loadConfig()
   user-select: none;
 }
 
-.error {
-  background-color: red;
-  font-size: 14px;
-  color: white;
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 4px;
-}
 </style>

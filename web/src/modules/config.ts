@@ -3,7 +3,7 @@ import { api } from '@/api'
 
 interface configState {
   config: MacroPadConfig,
-  error: Error | null,
+  error: string | null,
   loading: boolean,
 }
 
@@ -21,14 +21,14 @@ export function useConfig () {
       .then(({ macros }) => {
         state.config.macros = macros
       })
-      .catch(error => { state.error = error })
+      .catch(() => { state.error = 'Failed to load config' })
       .finally(() => { state.loading = false })
   }
 
   function saveConfig () {
     api.config.save(state.config)
       .then(ok => { alert(ok ? 'Saved!' : 'Failed!') })
-      .catch(error => { state.error = error })
+      .catch(() => { state.error = 'Failed to save config' })
       .finally(() => { state.loading = false })
   }
 
