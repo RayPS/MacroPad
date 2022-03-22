@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useConfig } from '@/modules/config'
 import KeyItem from './components/KeyItem.vue'
+import Button from './components/Button.vue'
 import Spinner from './components/Spinner.vue'
 import Error from './components/Error.vue'
 
@@ -65,19 +66,14 @@ loadConfig()
   margin: 0 auto;
 }
 
-.button {
-  background-color: hsla(0, 0%, 25%, 1);
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 0%, 0.05), 0px 32px 50px -24px hsla(0, 0%, 0%, 0.1);
-  text-align: center;
-  padding: 8px 32px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  display: inline-block;
-  margin-top: 40px;
-  cursor: pointer;
-  user-select: none;
+  .key-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 40px;
+    padding: 0 40px;
+    max-width: 1800px - 40px * 2;
+  }
 }
 
 </style>
