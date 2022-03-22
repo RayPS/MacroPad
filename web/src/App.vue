@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useConfig } from '@/modules/config'
 import KeyItem from './components/KeyItem.vue'
+import Spinner from './components/Spinner.vue'
 
 const { state, loadConfig, saveConfig } = useConfig()
 const { config, loading, error } = state
@@ -30,9 +31,8 @@ loadConfig()
 
   <div v-else-if="error" class="error">
     Failed to load config
+    <Spinner v-else />
   </div>
-
-  <div v-else class="spinner" />
 </template>
 
 <style lang="scss">
@@ -77,35 +77,6 @@ loadConfig()
   margin-top: 40px;
   cursor: pointer;
   user-select: none;
-}
-
-.spinner {
-  display: inline-block;
-  animation: fadeIn 0.25s 1 cubic-bezier(0.32, 0, 0.67, 0);
-  &::before {
-    content: '';
-    display: inline-block;
-    padding: 10px;
-    border-radius: 20px;
-    border: 4px solid hsla(0, 0%, 25%, 1);
-    border-top: 4px solid transparent;
-    animation: spin 0.5s infinite linear;
-  }
-  &::after {
-    content: 'Loading';
-    display: block;
-    color: hsl(0, 0%, 50%);
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
 
 .error {
