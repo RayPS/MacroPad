@@ -36,7 +36,9 @@ import syntax from '@/assets/syntax'
       </div>
     </div>
   </div>
-  <a class="repo-link" target="_blank" href="https://github.com/RayPS/MacroPad">https://github.com/RayPS/MacroPad</a>
+  <div class="repo-link">
+    <a target="_blank" href="https://github.com/RayPS/MacroPad">https://github.com/RayPS/MacroPad</a>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -122,11 +124,22 @@ h5 {
 }
 
 .repo-link {
-  display: block;
   text-align: center;
-  margin: 24px auto 40px auto;
-  width: 300px;
-  color: hsla(0, 0%, 0%, 0.75);
-  font-size: 13px;
+  padding: 16px 0;
+  a {
+    font-size: 13px;
+    color: hsla(0, 0%, 0%, 0.75);
+  }
 }
+
+@media screen and (max-width: 1024px) {
+  .doc {
+    flex-direction: column;
+    .tokens, .syntax {
+      width: 100%;
+      margin-top: 40px;
+    }
+  }
+}
+// @media screen and (max-width: 768px)
 </style>

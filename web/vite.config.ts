@@ -54,6 +54,7 @@ export default defineConfig(async ({ mode }) => {
       },
     },
     server: {
+      host: true,
       proxy: {
         '/api': `http://${deviceIPAddress}`,
       },

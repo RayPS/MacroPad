@@ -46,8 +46,6 @@ loadConfig()
   -moz-osx-font-smoothing: grayscale;
 
   background-color: hsla(0, 0%, 98%, 1);
-  height: 100vh;
-  overflow-y: scroll;
   color: hsla(0, 0%, 25%, 1);
 }
 
@@ -89,5 +87,27 @@ main {
 .card {
   background-color: white;
   border-radius: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+  .config-container {
+    height: unset;
+    .header {
+      padding: 40px 0;
+    }
+    .key-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .config-container {
+    .key-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 }
 </style>
