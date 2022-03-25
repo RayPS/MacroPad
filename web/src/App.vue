@@ -4,6 +4,7 @@ import KeyItem from './components/KeyItem.vue'
 import Button from './components/Button.vue'
 import Spinner from './components/Spinner.vue'
 import Error from './components/Error.vue'
+import Doc from './components/Doc.vue'
 
 const { state, loadConfig, saveConfig } = useConfig()
 const { config, loading, error } = state
@@ -13,24 +14,27 @@ loadConfig()
 </script>
 
 <template>
-  <div class="config-container">
-    <div class="header">
-      <h1>&#8984;</h1>
-      <h1>MacroPad</h1>
-      <h3>Configuration</h3>
-    </div>
-    <template v-if="!loading && !error">
-      <div class="key-grid">
-        <KeyItem
-          v-for="macro, index in config.macros" :key="index"
-          :index="index" :macro="macro"
-        />
+  <main>
+    <div class="config-container">
+      <div class="header">
+        <h1>&#8984;</h1>
+        <h1>MacroPad</h1>
+        <h3>Configuration</h3>
       </div>
-      <Button text="Save" @click="saveConfig" />
-    </template>
-    <Error v-else-if="error" :message="error" />
-    <Spinner v-else />
-  </div>
+      <template v-if="!loading && !error">
+        <div class="key-grid">
+          <KeyItem
+            v-for="macro, index in config.macros" :key="index"
+            :index="index" :macro="macro"
+          />
+        </div>
+        <Button text="Save" @click="saveConfig" />
+      </template>
+      <Error v-else-if="error" :message="error" />
+      <Spinner v-else />
+    </div>
+    <Doc />
+  </main>
 </template>
 
 <style lang="scss">
@@ -45,6 +49,11 @@ loadConfig()
   height: 100vh;
   overflow-y: scroll;
   color: hsla(0, 0%, 25%, 1);
+}
+
+main {
+  max-width: 1600px - (40px * 2);
+  margin: 0 auto;
 }
 
 .config-container {
@@ -65,8 +74,20 @@ loadConfig()
     grid-template-rows: repeat(2, 1fr);
     gap: 40px;
     padding: 0 40px;
-    max-width: 1800px - 40px * 2;
+    width: 100%;
   }
 }
 
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.shadow {
+  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 0%, 0.05), 0px 32px 50px -24px hsla(0, 0%, 0%, 0.1);
+}
+
+.card {
+  background-color: white;
+  border-radius: 16px;
+}
 </style>

@@ -19,20 +19,16 @@ function handleInput (event: Event) {
 </script>
 
 <template>
-  <div class="key-item">
+  <div class="key-item card shadow">
     <div class="index">
       {{ index + 1 }}
     </div>
-    <textarea :value="props.macro.join('\n')" class="macro" rows="4" @input="handleInput" />
+    <textarea :value="props.macro.join('\n')" class="macro mono" rows="4" @input="handleInput" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .key-item {
-  background-color: white;
-  border-radius: 8px;
-  border-radius: 16px;
-  box-shadow: 0px 4px 8px 0px hsla(0, 0%, 0%, 0.05), 0px 32px 50px -24px hsla(0, 0%, 0%, 0.1);
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -52,8 +48,7 @@ function handleInput (event: Event) {
     white-space: pre;
     resize: none;
     margin-top: 16px;
-    font-size: 14px;
-    font-family: monospace;
+    font-size: 13px;
     padding: 8px;
     border-radius: 8px;
     background: hsla(0, 0%, 99%, 1);
