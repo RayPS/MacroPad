@@ -130,4 +130,19 @@ release all keys</pre>
     </tbody>
 </table>
 
-(~ Interval is not implemented yet)
+# Todo
+- Hardware
+    - PCB
+        - [ ] Use USB-C instead of Micro USB 😅
+    - 3D Prints
+        - [ ] Design the top case
+        - [ ] Printable potentiometer cap, maybe
+- Software
+    - Firmware
+        - [ ] Decide the functionality for the potentiometer
+        - [ ] Fix the SW0 (IO9) crash
+        - [ ] Implementation of ~Interval, don't see any use case yet
+    - Web Interface
+        - [x] Add a "usage/reference" page
+        - [ ] Syntax highlighting
+        - [ ] Config saving guard
