@@ -42,6 +42,7 @@ It's recommended to place 4 **Silicone Rubber Feet** with diameter of 10mm under
 `http://macropad.local/`
 
 ![](.misc/Screenshot%202022-03-17%20at%2011.51.58@2x.png)
+![](.misc/Screenshot%202022-03-30%20at%2017.41.32@2x.png)
 
 The web interface is a Vue.js application.
 
