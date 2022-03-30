@@ -25,7 +25,7 @@ More details and documentation will be added soon.
 
 - [Manufacturing Files (Gerber)](hardware/Gerber)
 
-- [BOM (CSV)](hardware/BOM_MacroPad_2022-03-30.csv) The exported BOM list could be inacurate, It's recommended to import the EasyEDA project to check the BOM list.
+- [BOM (CSV)](hardware/BOM_MacroPad_2022-03-30.csv)
 
 ### 3D Printing Parts
 
