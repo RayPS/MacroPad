@@ -1,15 +1,8 @@
 
-# MacroPad 🚧
-```
-o       o   o-O-o    o--o  
-|       |     |      |   | 
-o   o   o     |      O--o  
- \ / \ /      |      |     
-  o   o     o-O-o    o     
-```
-This project is currently in development.
-
-More details and documentation will be added soon.
+<h3 align="center">⌘</h3>
+<h1 align="center">MacroPad</h1>
+<p align="center">Yet another MacroPad but remotely configurable/scriptable/executable over Wi-Fi.<br>Most importantly, it uses much cheaper solutions than the other existing ones.</p>
+<h4 align="center">🚧</h4>
 
 # Hardware
 
