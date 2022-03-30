@@ -58,7 +58,31 @@ See [/web](web) for more information.
 | `GET` | `/api/restart` | restart | ✅ |
 | `GET` | `/api/reset` | earase all settings | ✅ |
 
+# Build / Development
 
+> TODO: Add more information about development.
+
+Clone this project
+
+`git clone git@github.com:RayPS/MacroPad.git`
+
+Open this project in PlatformIO
+
+Update `upload_port`
+
+Update `monitor_port` (optional, if you want to see debug messages from SoftwareSerial, otherwise remove this option)
+
+Finally, upload to the board.
+
+### Web Interface Development
+
+`cd MacroPad/web`
+
+`yarn install`
+
+`yarn run dev` to start web development or `yarn run build` to build the html PROGREM for the firmware.
+
+(After `yarn run build`, you can perform an upload in PlatformIO again)
 
 # Macro Script Proposal
 
