@@ -73,7 +73,7 @@ Finally, upload to the board.
 
 `yarn install`
 
-`yarn run dev` to start web development or `yarn run build` to build the html PROGREM for the firmware.
+`yarn run dev` to start web development or `yarn run build` to build the html PROGMEM for the firmware.
 
 (After `yarn run build`, you can perform an upload in PlatformIO again)
 
