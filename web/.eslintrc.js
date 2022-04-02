@@ -37,6 +37,7 @@ module.exports = {
       files: ['*.ts', '*.vue'],
       rules: {
         'no-undef': 'off',
+        'func-call-spacing': 'off', // Fix for 'defineEmits'
       },
     },
   ],
