@@ -1,5 +1,5 @@
 type Macro = Array<string>
 
-interface MacroPadConfig {
+type MacroPadConfig = {
   macros: Array<Macro>
 }
