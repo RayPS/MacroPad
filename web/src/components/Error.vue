@@ -1,9 +1,7 @@
 <script setup lang="ts">
-interface ErrorProps {
+const props = defineProps<{
   message: string;
-}
-
-const props = defineProps<ErrorProps>()
+}>()
 </script>
 
 <template>

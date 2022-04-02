@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { useConfig } from '@/modules/config'
+import { useConfig } from '@/stores/config'
 import KeyItem from './components/KeyItem.vue'
 import Button from './components/Button.vue'
 import Spinner from './components/Spinner.vue'
 import Error from './components/Error.vue'
 import Doc from './components/Doc.vue'
 
-const { state, loadConfig, saveConfig } = useConfig()
+const { state, actions } = useConfig()
 const { config, loading, error } = state
+const { loadConfig, saveConfig } = actions
 
 loadConfig()
 
@@ -23,10 +24,7 @@ loadConfig()
       </div>
       <template v-if="!loading && !error">
         <div class="key-grid">
-          <KeyItem
-            v-for="macro, index in config.macros" :key="index"
-            :index="index" :macro="macro"
-          />
+          <KeyItem v-for="macro, index in config.macros" :key="index" :index="index" />
         </div>
         <Button text="Save" @click="saveConfig" />
       </template>

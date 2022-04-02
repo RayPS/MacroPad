@@ -1,19 +1,23 @@
 <script setup lang="ts">
-import { useConfig } from '@/modules/config'
-const { state: { config } } = useConfig()
+import { computed } from 'vue'
+import { useConfig } from '@/stores/config'
 
-interface KeyItemProps {
+const {
+  state: { config },
+  mutations: { setMacro },
+} = useConfig()
+
+const props = defineProps<{
   index: number,
-  macro: Macro
-}
+}>()
 
-const props = defineProps<KeyItemProps>()
+const macro = computed(() => config.value.macros[props.index].join('\n'))
 
 function handleInput (event: Event) {
   const target = event.target as HTMLTextAreaElement
   const content: string = target.value.replaceAll(/[^\x20-\x7E\n]/g, '')
-  const macro: Macro = content.split('\n')
-  config.value.macros[props.index] = macro
+  const newMacro: Macro = content.split('\n')
+  setMacro(props.index, newMacro)
 }
 
 </script>
@@ -23,7 +27,7 @@ function handleInput (event: Event) {
     <div class="index">
       {{ index + 1 }}
     </div>
-    <textarea :value="props.macro.join('\n')" class="macro mono" rows="4" @input="handleInput" />
+    <textarea :value="macro" class="macro mono" rows="4" @input="handleInput" />
   </div>
 </template>
 
@@ -32,6 +36,7 @@ function handleInput (event: Event) {
   padding: 16px;
   display: flex;
   flex-direction: column;
+  min-width: 20%;
 
   .index {
     width: 40px;
