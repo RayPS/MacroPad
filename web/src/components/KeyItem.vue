@@ -49,7 +49,7 @@ function handleInput (event: Event) {
     text-align: center;
   }
 
-  .macro {
+  textarea.macro {
     white-space: pre;
     resize: none;
     margin-top: 16px;
@@ -60,6 +60,14 @@ function handleInput (event: Event) {
     outline: 1px solid hsla(0, 0%, 95%, 1);
     border: none;
     width: 100%;
+  }
+}
+
+@include breakpoint('medium') {
+  .key-item {
+    textarea.macro {
+      height: 12em;
+    }
   }
 }
 </style>
