@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import tokens from '@/assets/tokens'
-import syntax from '@/assets/syntax'
+import { syntax, tokens } from '@/assets/doc.json'
 </script>
 
 <template>

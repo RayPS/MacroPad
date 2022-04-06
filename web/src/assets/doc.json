@@ -1,0 +1,42 @@
+{
+  "syntax": {
+    "example": [
+      "# This is a comment",
+      "@ CTRL SHIFT F1",
+      "$ Hello world!",
+      "! 1200",
+      "~ 50",
+      "+ WIN R",
+      "- WIN R",
+      "."
+    ],
+    "description": [
+      "Anything starts with a # will be ignored",
+      "Press and release a key combination",
+      "String, same as typing it on the keyboard",
+      "Wait for a specific time in milliseconds",
+      "Set interval between each keys in milliseconds",
+      "Press a key combination",
+      "Release a key combination",
+      "Release all keys"
+    ]
+  },
+  "tokens": [
+    {
+      "name": "Modifiers",
+      "items": ["CTRL", "SHIFT", "ALT", "WIN", "CMD", "RCTRL", "RSHIFT", "RALT", "RWIN", "RCMD"]
+    },
+    {
+      "name": "Function Keys",
+      "items": ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "F13", "F14", "F15", "F16", "F17", "F18", "F19", "F20", "F21", "F22", "F23", "F24"]
+    },
+    {
+      "name": "Arrow Keys",
+      "items": ["UP", "DOWN", "LEFT", "RIGHT"]
+    },
+    {
+      "name": "Other",
+      "items": ["RETURN", "ENTER", "ESC", "BACKSPACE", "SPACE", "TAB", "CAPSLOCK", "INSERT", "DELETE", "PAGEUP", "PAGEDOWN", "HOME", "END"]
+    }
+  ]
+}
