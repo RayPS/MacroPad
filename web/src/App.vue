@@ -87,7 +87,7 @@ main {
   border-radius: 16px;
 }
 
-@media screen and (max-width: 1024px) {
+@include breakpoint('medium') {
   .config-container {
     height: unset;
     .header {
@@ -101,7 +101,7 @@ main {
   }
 }
 
-@media screen and (max-width: 768px) {
+@include breakpoint('small') {
   .config-container {
     .key-grid {
       grid-template-columns: 1fr;

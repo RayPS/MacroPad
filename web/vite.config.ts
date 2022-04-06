@@ -53,6 +53,13 @@ export default defineConfig(async ({ mode }) => {
         },
       },
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import \'@/assets/_variables\';',
+        },
+      },
+    },
     server: {
       host: true,
       proxy: {
