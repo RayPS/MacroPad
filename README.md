@@ -137,7 +137,7 @@ release all keys</pre>
         - [ ] Implementation of ~Interval, don't see any use case yet
     - Web Interface
         - [x] Add a "usage/reference" page
-        - [ ] Syntax highlighting
+        - [ ] Syntax highlighting. is this necessary?
         - [ ] Config saving guard (macro syntax validation)
 
 Features Roadmap:
