@@ -141,5 +141,5 @@ release all keys</pre>
         - [ ] Config saving guard (macro syntax validation)
 
 Features Roadmap:
-- Remote execution
+- Remote execution (Already done but wont add to current version)
 - Multi-configs
