@@ -15,8 +15,7 @@ const macro = computed(() => config.value.macros[props.index].join('\n'))
 
 function handleInput (event: Event) {
   const target = event.target as HTMLTextAreaElement
-  const content: string = target.value.replaceAll(/[^\x20-\x7E\n]/g, '')
-  const newMacro: Macro = content.split('\n')
+  const newMacro: Macro = target.value.split('\n')
   setMacro(props.index, newMacro)
 }
 

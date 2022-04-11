@@ -1,9 +1,11 @@
 import { reactive, toRefs, readonly } from 'vue'
 import { api } from '@/api'
+import { validateMacros, MacroSyntaxError } from '@/macro-validator'
 
 type ConfigState = {
   config: MacroPadConfig,
   error?: string | null,
+  syntaxError: MacroSyntaxError | null,
   loading: boolean,
 }
 
@@ -12,6 +14,7 @@ const state: ConfigState = reactive({
     macros: [],
   },
   error: null,
+  syntaxError: null,
   loading: true,
 })
 
@@ -28,9 +31,16 @@ export function useConfig () {
           .finally(() => { state.loading = false })
       },
       saveConfig () {
-        api.config.save(state.config)
+        validateMacros(state.config.macros)
+          .then(() => api.config.save(state.config))
           .then(ok => { alert(ok ? 'Saved!' : 'Failed!') })
-          .catch(() => { state.error = 'Failed to save config' })
+          .catch((error) => {
+            if (error instanceof MacroSyntaxError) {
+              state.syntaxError = error
+            } else {
+              state.error = 'Failed to save config'
+            }
+          })
           .finally(() => { state.loading = false })
       },
     },
