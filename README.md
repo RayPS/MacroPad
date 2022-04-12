@@ -138,7 +138,7 @@ release all keys</pre>
     - Web Interface
         - [x] Add a "usage/reference" page
         - [ ] Syntax highlighting. is this necessary?
-        - [ ] Config saving guard (macro syntax validation)
+        - [x] Config saving guard (macro syntax validation)
 
 Features Roadmap:
 - Remote execution (Already done but wont add to current version)
