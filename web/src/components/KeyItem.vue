@@ -3,8 +3,8 @@ import { computed } from 'vue'
 import { useConfig } from '@/stores/config'
 
 const {
-  state: { config },
-  mutations: { setMacro },
+  state: { config, syntaxError },
+  mutations: { setMacro, resetSyntaxError },
 } = useConfig()
 
 const props = defineProps<{
@@ -12,11 +12,13 @@ const props = defineProps<{
 }>()
 
 const macro = computed(() => config.value.macros[props.index].join('\n'))
+const hasSyntaxError = computed(() => syntaxError.value?.errorInfo.index === props.index)
 
 function handleInput (event: Event) {
   const target = event.target as HTMLTextAreaElement
   const newMacro: Macro = target.value.split('\n')
   setMacro(props.index, newMacro)
+  resetSyntaxError()
 }
 
 </script>
@@ -26,7 +28,10 @@ function handleInput (event: Event) {
     <div class="index">
       {{ index + 1 }}
     </div>
-    <textarea :value="macro" class="macro mono" rows="4" @input="handleInput" />
+    <textarea
+      :value="macro" class="macro mono" :class="{invalid: hasSyntaxError}" rows="4"
+      @input="handleInput"
+    />
   </div>
 </template>
 
@@ -59,6 +64,22 @@ function handleInput (event: Event) {
     outline: 1px solid hsla(0, 0%, 95%, 1);
     border: none;
     width: 100%;
+  }
+
+  textarea.macro.invalid {
+    outline: 4px solid hsla(0, 100%, 50%, 0.25);
+    animation: invalid 0.5s ease-in-out infinite alternate-reverse;
+  }
+}
+
+@keyframes invalid {
+  0% {
+    outline-color: hsla(0, 100%, 50%, 0.25);
+    outline-width: 4px;
+  }
+  100% {
+    outline-color: hsla(0, 100%, 50%, 0);
+    outline-width: 0;
   }
 }
 

@@ -48,6 +48,9 @@ export function useConfig () {
       setMacro (index: number, macro: Macro) {
         state.config.macros[index] = macro
       },
+      resetSyntaxError () {
+        state.syntaxError = null
+      },
     },
   }
 }

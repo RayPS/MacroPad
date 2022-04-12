@@ -7,7 +7,7 @@ import Error from './components/Error.vue'
 import Doc from './components/Doc.vue'
 
 const { state, actions } = useConfig()
-const { config, loading, error } = state
+const { config, loading, error, syntaxError } = state
 const { loadConfig, saveConfig } = actions
 
 loadConfig()
@@ -26,7 +26,12 @@ loadConfig()
         <div class="key-grid">
           <KeyItem v-for="macro, index in config.macros" :key="index" :index="index" />
         </div>
-        <Button text="Save" @click="saveConfig" />
+        <div v-if="syntaxError" class="validation">
+          <span class="index">{{ syntaxError.errorInfo.index + 1 }}</span>
+          Syntax error at line {{ syntaxError.errorInfo.line }}.<br>
+          <span class="message">{{ syntaxError.message }}</span>
+        </div>
+        <Button v-else text="Save" @click="saveConfig" />
       </template>
       <Error v-else-if="error" :message="error" />
       <Spinner v-else />
@@ -71,6 +76,25 @@ main {
     gap: 40px;
     padding: 0 40px;
     width: 100%;
+  }
+
+  .validation {
+    font-weight: bold;
+    .index {
+      border: 2px solid black;
+      width: 1.5em;
+      height: 1.5em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.3em;
+      margin-right: 0.5em;
+      margin-bottom: 0.25em;
+    }
+    .message {
+      font-weight: normal;
+      color:hsla(0, 0%, 25%);
+    }
   }
 }
 
